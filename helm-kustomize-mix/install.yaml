@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: minio-operator
+commonAnnotations:
+  operator.min.io/authors: "MinIO, Inc."
+  operator.min.io/license: "AGPLv3"
+  operator.min.io/support: "https://subnet.min.io"
+resources:
+helmCharts:
+  - name: operator
+    repo: https://operator.min.io/
+    version: v5.0.9
+    releaseName: minio-operator
+    namespace: minio-operator
